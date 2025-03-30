@@ -1,0 +1,128 @@
+table StorageByWorkspaces
+	lineageTag: 0fae711c-37bd-4aa5-9b45-b30878c4ef5e
+	sourceLineageTag: [dbo].[StorageByWorkspaces]
+
+	column WorkspaceId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: dc718eb2-4d7a-4a53-baac-0999ac3d404f
+		sourceLineageTag: WorkspaceId
+		summarizeBy: none
+		sourceColumn: WorkspaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PremiumCapacityId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2bc8b0ba-78af-42e7-a7b3-3418f25af4d8
+		sourceLineageTag: PremiumCapacityId
+		summarizeBy: none
+		sourceColumn: PremiumCapacityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkloadKind
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1ef3cb63-7048-4b5c-be06-3c356956aab6
+		sourceLineageTag: WorkloadKind
+		summarizeBy: none
+		sourceColumn: WorkloadKind
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkloadOperationKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f42b5646-fc40-42d7-8fe3-93bfef426f26
+		sourceLineageTag: WorkloadOperationKey
+		summarizeBy: none
+		sourceColumn: WorkloadOperationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperationName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1685929d-2c23-4880-ae47-62a8ce7baec0
+		sourceLineageTag: OperationName
+		summarizeBy: none
+		sourceColumn: OperationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 82f05fe5-9ea5-45f5-acac-da5f0313973c
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column UtilizationInGb
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 9495ad48-be71-4f6d-a4e8-f3fe91db5a55
+		sourceLineageTag: UtilizationInGb
+		summarizeBy: sum
+		sourceColumn: UtilizationInGb
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StaticStorageInGb
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 135a7c63-01dd-4061-ba78-5b3f6c96bb80
+		sourceLineageTag: StaticStorageInGb
+		summarizeBy: sum
+		sourceColumn: StaticStorageInGb
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OperationName_cleaned
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b568d9e2-c516-4c23-ba51-01926ca15722
+		sourceLineageTag: OperationName_cleaned
+		summarizeBy: none
+		sourceColumn: OperationName_cleaned
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkspaceName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e76d3e15-836c-419b-a707-61ffeb10a1c1
+		sourceLineageTag: WorkspaceName
+		summarizeBy: none
+		sourceColumn: WorkspaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CapacityWorkspaceKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d570d754-df82-45aa-8134-e9bfba77e2fa
+		sourceLineageTag: CapacityWorkspaceKey
+		summarizeBy: none
+		sourceColumn: CapacityWorkspaceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StorageByWorkspaces = entity
+		mode: directLake
+		source
+			entityName: StorageByWorkspaces
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

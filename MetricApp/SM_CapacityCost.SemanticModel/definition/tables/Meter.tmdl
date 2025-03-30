@@ -1,0 +1,33 @@
+table Meter
+	lineageTag: c4650379-e89b-456c-acb3-a324208101ad
+	sourceLineageTag: [dbo].[Meter]
+
+	column azure_billing_meter
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f081d3df-cfc2-49b6-a161-a2cf994b9b93
+		sourceLineageTag: azure_billing_meter
+		summarizeBy: none
+		sourceColumn: azure_billing_meter
+
+		annotation SummarizationSetBy = Automatic
+
+	column azure_billing_meter_cleaned
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 39282e8e-6dab-4ce8-96b2-e5e793d66433
+		sourceLineageTag: azure_billing_meter_cleaned
+		summarizeBy: none
+		sourceColumn: azure_billing_meter_cleaned
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Meter = entity
+		mode: directLake
+		source
+			entityName: Meter
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

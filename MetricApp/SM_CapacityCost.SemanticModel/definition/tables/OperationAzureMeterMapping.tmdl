@@ -1,0 +1,53 @@
+table OperationAzureMeterMapping
+	lineageTag: 509d1788-f1c7-4445-9634-4633fbcb4e37
+	sourceLineageTag: [dbo].[OperationAzureMeterMapping]
+
+	column operation
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5ac91788-047d-4367-8298-5952add061f7
+		sourceLineageTag: operation
+		summarizeBy: none
+		sourceColumn: operation
+
+		annotation SummarizationSetBy = Automatic
+
+	column azure_billing_meter
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7ad0469c-abf9-4e18-8c71-29ce3484288c
+		sourceLineageTag: azure_billing_meter
+		summarizeBy: none
+		sourceColumn: azure_billing_meter
+
+		annotation SummarizationSetBy = Automatic
+
+	column operation_cleaned
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b434d8d3-304f-4979-b2dc-627bb39aadb9
+		sourceLineageTag: operation_cleaned
+		summarizeBy: none
+		sourceColumn: operation_cleaned
+
+		annotation SummarizationSetBy = Automatic
+
+	column azure_billing_meter_cleaned
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9c369c95-f224-4c71-93f4-31909c6ee7a6
+		sourceLineageTag: azure_billing_meter_cleaned
+		summarizeBy: none
+		sourceColumn: azure_billing_meter_cleaned
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OperationAzureMeterMapping = entity
+		mode: directLake
+		source
+			entityName: OperationAzureMeterMapping
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

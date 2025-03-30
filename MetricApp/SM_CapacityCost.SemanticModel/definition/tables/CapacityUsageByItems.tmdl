@@ -1,0 +1,153 @@
+table CapacityUsageByItems
+	lineageTag: f5ddc1a0-3370-44ce-b545-fcbbe65bb4f0
+	sourceLineageTag: [dbo].[CapacityUsageByItems]
+
+	measure CostPerItem1 = ```
+			
+			    VAR _table = 
+			      SUMMARIZECOLUMNS(
+			        'CapacityUsageByItems'[ItemName],
+			        'CapacityUsageByItems'[Date],
+			        'Capacities'[CapacityName],
+			        'CapacityUsageByItems'[OperationName],
+			        'CapacityUsageByItems'[sum_CU],
+			        'AzureBillingCost'[ResourceRate]
+			      )
+			    VAR _res = 
+			      ADDCOLUMNS(
+			        _table,
+			        "CostPerItem", ('CapacityUsageByItems'[sum_CU] / 3600) * 'AzureBillingCost'[ResourceRate]
+			      )
+			    RETURN
+			      SUMX(_res, [CostPerItem])
+			
+			
+			```
+		lineageTag: ec42e0db-8cdd-4c09-8ee0-50fce01c1462
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WorkspaceName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9f782a3c-2bbb-48ee-8398-33c948ec3727
+		sourceLineageTag: WorkspaceName
+		summarizeBy: none
+		sourceColumn: WorkspaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemKind
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8c2d5fc2-d874-463b-b26a-fb5c478f9be0
+		sourceLineageTag: ItemKind
+		summarizeBy: none
+		sourceColumn: ItemKind
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9e8a62b3-858a-4b9c-81ef-5d04028280b0
+		sourceLineageTag: ItemName
+		summarizeBy: none
+		sourceColumn: ItemName
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacityId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 36eb2dda-5b0c-4e55-a02a-747f7b47f797
+		sourceLineageTag: capacityId
+		summarizeBy: none
+		sourceColumn: capacityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkspaceId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 580e621c-1131-4195-a893-2cbec883d8ab
+		sourceLineageTag: WorkspaceId
+		summarizeBy: none
+		sourceColumn: WorkspaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ad58d5f9-9ba0-4105-b797-0b0c4243d94a
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperationName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 49526995-cded-47b7-96e1-3c24a8040705
+		sourceLineageTag: OperationName
+		summarizeBy: none
+		sourceColumn: OperationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column sum_CU
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4a4205fb-b881-464c-bb4d-4ddc301ba309
+		sourceLineageTag: sum_CU
+		summarizeBy: sum
+		sourceColumn: sum_CU
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_duration
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c7262fd7-9af3-4691-9397-4b8ef980e45d
+		sourceLineageTag: sum_duration
+		summarizeBy: sum
+		sourceColumn: sum_duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OperationName_cleaned
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ffedc81b-b55e-463c-b192-417073c073d2
+		sourceLineageTag: OperationName_cleaned
+		summarizeBy: none
+		sourceColumn: OperationName_cleaned
+
+		annotation SummarizationSetBy = Automatic
+
+	column CapacityWorkspaceKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 03319b6d-1dd1-4772-8dc8-0c9dcf861ff6
+		sourceLineageTag: CapacityWorkspaceKey
+		summarizeBy: none
+		sourceColumn: CapacityWorkspaceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CapacityUsageByItems = entity
+		mode: directLake
+		source
+			entityName: CapacityUsageByItems
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,73 @@
+table Workspaces
+	lineageTag: 7f70191f-20f5-4ca8-99c1-e79943232c50
+	sourceLineageTag: [dbo].[Workspaces]
+
+	column WorkspaceId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 208b192b-0392-4a84-b550-7eaa8c411336
+		sourceLineageTag: WorkspaceId
+		summarizeBy: none
+		sourceColumn: WorkspaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkspaceKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 80ff0ed7-117c-49d2-a76d-d0ca2e723f11
+		sourceLineageTag: WorkspaceKey
+		summarizeBy: none
+		sourceColumn: WorkspaceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkspaceName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b238c991-3c3d-481c-b19b-1005a95be8a1
+		sourceLineageTag: WorkspaceName
+		summarizeBy: none
+		sourceColumn: WorkspaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PremiumCapacityId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b6ea2a4a-480d-4e98-9d1d-5d6997ac02b4
+		sourceLineageTag: PremiumCapacityId
+		summarizeBy: none
+		sourceColumn: PremiumCapacityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkspaceProvisionState
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: eec81909-4416-4d7f-a75a-410bfa4c6096
+		sourceLineageTag: WorkspaceProvisionState
+		summarizeBy: none
+		sourceColumn: WorkspaceProvisionState
+
+		annotation SummarizationSetBy = Automatic
+
+	column CapacityWorkspaceKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5c6ba5f7-68bc-492b-8cc8-e6a66d8a4a3f
+		sourceLineageTag: CapacityWorkspaceKey
+		summarizeBy: none
+		sourceColumn: CapacityWorkspaceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Workspaces = entity
+		mode: directLake
+		source
+			entityName: Workspaces
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

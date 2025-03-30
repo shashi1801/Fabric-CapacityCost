@@ -1,0 +1,184 @@
+table AzureBillingCost
+	lineageTag: 804747e9-495b-4051-a21b-f0b0cdfcb954
+	sourceLineageTag: [dbo].[AzureBillingCost]
+
+	measure CostPerItem = ```
+			
+			    VAR _table = 
+			      SUMMARIZECOLUMNS(
+			        'Date'[Date],
+			        'Capacities'[CapacityName],
+			        'Meter'[azure_billing_meter],       
+			        'Meter'[azure_billing_meter_cleaned],
+			        'AzureBillingCost'[Meter_cleaned],
+			        'CapacityUsageByItems'[OperationName_cleaned],
+			        "Rate",ROUND(max('AzureBillingCost'[Rate]),4),
+			        "CUHr", SUM('CapacityUsageByItems'[sum_CU])  / 3600.00
+			      )
+			    VAR _res = 
+			      ADDCOLUMNS(
+			        _table,
+			        "CostPerItem", ([CUHr] ) * [Rate]
+			      )
+			    RETURN
+			      SUMX(_res, [CostPerItem])
+			
+			
+			```
+		lineageTag: 8a6a6abc-cc10-40d9-b1ca-09ef96337574
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure StorageCost = ```
+			
+			    VAR _table = 
+			      SUMMARIZECOLUMNS(
+			        'Date'[Date],
+			        'Capacities'[CapacityName],
+			        'StorageByWorkspaces'[WorkspaceId],
+			        'Meter'[azure_billing_meter],
+			        "Rate", MAX('AzureBillingCost'[Rate]),
+			        "StaticStorageInGb", SUM(StorageByWorkspaces[StaticStorageInGb])/30
+			      )
+			    VAR _res = 
+			      ADDCOLUMNS(
+			        _table,
+			        "StorageCost", ([StaticStorageInGb]) * [Rate]
+			      )
+			    RETURN
+			      SUMX(_res, [StorageCost])
+			
+			
+			```
+		lineageTag: 504aad18-6064-4130-be52-fb5f03a3711b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PreTaxCost
+		dataType: double
+		sourceProviderType: float
+		lineageTag: da697c24-2f29-43ac-b0bf-ebd076d749e5
+		sourceLineageTag: PreTaxCost
+		summarizeBy: sum
+		sourceColumn: PreTaxCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UsageQuantity
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e419f845-585b-443b-a83b-92f34b8dca75
+		sourceLineageTag: UsageQuantity
+		summarizeBy: sum
+		sourceColumn: UsageQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UsageDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: ad5bb86c-8ca3-4234-8f95-71fd2c81b139
+		sourceLineageTag: UsageDate
+		summarizeBy: none
+		sourceColumn: UsageDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResourceId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 386243e1-c625-4680-805a-f9d041838c33
+		sourceLineageTag: ResourceId
+		summarizeBy: none
+		sourceColumn: ResourceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Meter
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8540fdf1-c272-420c-b5b4-988987c9b02f
+		sourceLineageTag: Meter
+		summarizeBy: none
+		sourceColumn: Meter
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResourceGuid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 091f2f22-6ff8-486b-a53f-d7f806b1a04c
+		sourceLineageTag: ResourceGuid
+		summarizeBy: none
+		sourceColumn: ResourceGuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column MeterSubCategory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6248ba61-d93f-4fe3-8472-ebfbd06c7ce0
+		sourceLineageTag: MeterSubCategory
+		summarizeBy: none
+		sourceColumn: MeterSubCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5239bed3-9732-48cd-8694-5977126c1ee0
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResourceName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 98d2e0d5-2d90-40e8-b556-788c29c65bdc
+		sourceLineageTag: ResourceName
+		summarizeBy: none
+		sourceColumn: ResourceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Meter_cleaned
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 82e27e2d-7449-4c83-9145-558eb0f5faa4
+		sourceLineageTag: Meter_cleaned
+		summarizeBy: none
+		sourceColumn: Meter_cleaned
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 5b29ead7-f674-46af-83dd-7a2675ba8a58
+		sourceLineageTag: Rate
+		summarizeBy: sum
+		sourceColumn: Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition AzureBillingCost = entity
+		mode: directLake
+		source
+			entityName: AzureBillingCost
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

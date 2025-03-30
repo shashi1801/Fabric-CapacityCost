@@ -1,0 +1,234 @@
+{
+  "config": "{\"version\":\"5.50\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY18SU07\",\"version\":\"3.15\",\"type\":2},\"customTheme\":{\"name\":\"Sunset\",\"version\":\"5.62\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "faec7d4c269e97ffa808",
+      "config": "{}",
+      "name": "b60cd57080c95826d6a0",
+      "parameters": "[{\"name\":\"961d53ed37c0e17280e6\",\"boundFilter\":\"daeef7d7bd8464057a44\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Workspaces\"}},\"Property\":\"WorkspaceName\"}}}]",
+      "type": 1
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY18SU07",
+            "path": "BaseThemes/CY18SU07.json",
+            "type": 202
+          },
+          {
+            "name": "Sunset",
+            "path": "BuiltInThemes/Sunset.json",
+            "type": 201
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"265L\"}}}}}]}}",
+      "displayName": "Cost Summary",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "5e169dfcb4976b7a8846",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2fe66e20ab766622264a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":353.5771201674134,\"y\":233.6576073833606,\"z\":3000,\"width\":275.69125103962654,\"height\":252.20186193759557,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"AzureBillingCost.CostPerItem\"}],\"Category\":[{\"queryRef\":\"Workspaces.WorkspaceName\",\"active\":true},{\"queryRef\":\"CapacityUsageByItems.ItemKind\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"CapacityUsageByItems\",\"Type\":0},{\"Name\":\"w\",\"Entity\":\"Workspaces\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"},\"Name\":\"AzureBillingCost.CostPerItem\",\"NativeReferenceName\":\"CostPerItem\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"ItemKind\"},\"Name\":\"CapacityUsageByItems.ItemKind\",\"NativeReferenceName\":\"ItemKind\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"WorkspaceName\"},\"Name\":\"Workspaces.WorkspaceName\",\"NativeReferenceName\":\"WorkspaceName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"}}}]},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'Both'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Compute Cost By Workspaces'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 252.20,
+          "width": 275.69,
+          "x": 353.58,
+          "y": 233.66,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"325cd2b8275703ade9ae\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":233.6576073833606,\"z\":0,\"width\":336.26914925012744,\"height\":252.20186193759557,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"AzureBillingCost.CostPerItem\"},{\"queryRef\":\"AzureBillingCost.StorageCost\"}],\"Category\":[{\"queryRef\":\"Workspaces.WorkspaceName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0},{\"Name\":\"w\",\"Entity\":\"Workspaces\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"},\"Name\":\"AzureBillingCost.CostPerItem\",\"NativeReferenceName\":\"CostPerItem\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"StorageCost\"},\"Name\":\"AzureBillingCost.StorageCost\",\"NativeReferenceName\":\"StorageCost\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"WorkspaceName\"},\"Name\":\"Workspaces.WorkspaceName\",\"NativeReferenceName\":\"WorkspaceName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"}}}]},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'Auto'\"}}},\"labelOrientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"labelOverflow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"optimizeLabelDisplay\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"labelContentLayout\":{\"expr\":{\"Literal\":{\"Value\":\"'SingleLine'\"}}},\"enableBackground\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total Cost By Workspaces'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 252.20,
+          "width": 336.27,
+          "x": 0.00,
+          "y": 233.66,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"3334ac574103a3b86912\",\"layouts\":[{\"id\":0,\"position\":{\"x\":247.3684210526316,\"y\":67.36842105263158,\"z\":5000,\"width\":247.3684210526316,\"height\":144.21052631578948,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"AzureBillingCost.CostPerItem\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"},\"Name\":\"AzureBillingCost.CostPerItem\",\"NativeReferenceName\":\"CostPerItem\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"}}}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Workspace Capacity Cost'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"bcf1c312e1f59a6005d5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"azure_billing_meter_cleaned\"}},\"type\":\"Advanced\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]},\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"94c284747656abb2cbc5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"operation\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"f4ce8a9a00b352464097\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"MeterSubCategory\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"9dd4608d7e52a5f2e5cf\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"CapacityUsageByItems\"}},\"Property\":\"OperationName_cleaned\"}},\"type\":\"Advanced\",\"howCreated\":1,\"ordinal\":3},{\"name\":\"b340ac91a4d9a51de8e2\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 144.21,
+          "width": 247.37,
+          "x": 247.37,
+          "y": 67.37,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"49c17bc520e9723191e7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":651.5214766721219,\"y\":233.6576073833606,\"z\":4000,\"width\":275.69125103962654,\"height\":252.20186193759557,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Workspaces.WorkspaceName\",\"active\":true},{\"queryRef\":\"StorageByWorkspaces.WorkloadKind\"}],\"Y\":[{\"queryRef\":\"AzureBillingCost.StorageCost\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"StorageByWorkspaces\",\"Type\":0},{\"Name\":\"w\",\"Entity\":\"Workspaces\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"WorkloadKind\"},\"Name\":\"StorageByWorkspaces.WorkloadKind\",\"NativeReferenceName\":\"WorkloadKind\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"WorkspaceName\"},\"Name\":\"Workspaces.WorkspaceName\",\"NativeReferenceName\":\"WorkspaceName\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"StorageCost\"},\"Name\":\"AzureBillingCost.StorageCost\",\"NativeReferenceName\":\"StorageCost\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"StorageCost\"}}}]},\"columnProperties\":{\"AzureBillingCost.CostPerItem\":{\"formatString\":null}},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"labels\":[{\"properties\":{\"labelStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'Both'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Storage Cost By Workspaces'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 252.20,
+          "width": 275.69,
+          "x": 651.52,
+          "y": 233.66,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"b9f94332096cb8940442\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2000,\"width\":365.2757793764988,\"height\":85.94724220623502,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Capacities.CapacityName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Capacities\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"CapacityName\"},\"Name\":\"Capacities.CapacityName\",\"NativeReferenceName\":\"CapacityName\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[{\"name\":\"ec570e52f67a1e5f478f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"CapacityUsageByItems\"}},\"Property\":\"OperationName_cleaned\"}},\"type\":\"Categorical\",\"howCreated\":1}]",
+          "height": 85.95,
+          "width": 365.28,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"baf26793b7291ea9005c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":491.5789473684211,\"y\":67.36842105263158,\"z\":7000,\"width\":248.42105263157896,\"height\":144.21052631578948,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(AzureBillingCost.PreTaxCost)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0},\"Name\":\"Sum(AzureBillingCost.PreTaxCost)\",\"NativeReferenceName\":\"Cost\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(AzureBillingCost.PreTaxCost)\":{\"displayName\":\"Cost\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Other Capacity Cost'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"bcf1c312e1f59a6005d5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"azure_billing_meter_cleaned\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OperationAzureMeterMapping\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"azure_billing_meter_cleaned\"}},\"Right\":{\"Literal\":{\"Value\":\"null\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]},\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"94c284747656abb2cbc5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"operation\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"f4ce8a9a00b352464097\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"MeterSubCategory\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"MeterSubCategory\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Fabric Capacity'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"9dd4608d7e52a5f2e5cf\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"CapacityUsageByItems\"}},\"Property\":\"OperationName_cleaned\"}},\"type\":\"Advanced\",\"howCreated\":1,\"ordinal\":3},{\"name\":\"b340ac91a4d9a51de8e2\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 144.21,
+          "width": 248.42,
+          "x": 491.58,
+          "y": 67.37,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"d3a29187ebd85b0907c4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":67.36842105263158,\"z\":6000,\"width\":247.3684210526316,\"height\":144.21052631578948,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(AzureBillingCost.PreTaxCost)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0},\"Name\":\"Sum(AzureBillingCost.PreTaxCost)\",\"NativeReferenceName\":\"Cost\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(AzureBillingCost.PreTaxCost)\":{\"displayName\":\"Cost\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total Capacity Cost'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"bcf1c312e1f59a6005d5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"azure_billing_meter_cleaned\"}},\"type\":\"Advanced\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]},\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"94c284747656abb2cbc5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"operation\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"f4ce8a9a00b352464097\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"MeterSubCategory\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"MeterSubCategory\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Fabric Capacity'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"9dd4608d7e52a5f2e5cf\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"CapacityUsageByItems\"}},\"Property\":\"OperationName_cleaned\"}},\"type\":\"Advanced\",\"howCreated\":1,\"ordinal\":3},{\"name\":\"b340ac91a4d9a51de8e2\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 144.21,
+          "width": 247.37,
+          "x": 0.00,
+          "y": 67.37,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"f50c09c074424dd000ea\",\"layouts\":[{\"id\":0,\"position\":{\"x\":950.5263157894738,\"y\":0,\"z\":1000,\"width\":329.47368421052636,\"height\":107.36842105263159,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Date.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Date.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}}}]},\"expansionStates\":[{\"roles\":[\"Values\"],\"levels\":[{\"queryRefs\":[\"Date.Date\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null}}],\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2025-02-20T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2025-02-28T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[{\"name\":\"bd7daaad40d95520e669\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Date\"}},\"Property\":\"Date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Between\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}},\"LowerBound\":{\"DateAdd\":{\"Expression\":{\"Now\":{}},\"Amount\":-3600,\"TimeUnit\":7}},\"UpperBound\":{\"Now\":{}}}}}]},\"type\":\"RelativeTime\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0}]",
+          "height": 107.37,
+          "width": 329.47,
+          "x": 950.53,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Mapping Validation",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "877487565dbc80f60158",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"8ee8a4e644b412419f2c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":81.93598750975801,\"z\":0,\"width\":733.4270101483216,\"height\":594.5355191256831}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"OperationAzureMeterMapping.operation\"},{\"queryRef\":\"OperationAzureMeterMapping.azure_billing_meter\"},{\"queryRef\":\"CapacityUsageByItems.OperationName\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OperationAzureMeterMapping\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"CapacityUsageByItems\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"operation\"},\"Name\":\"OperationAzureMeterMapping.operation\",\"NativeReferenceName\":\"operation\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"azure_billing_meter\"},\"Name\":\"OperationAzureMeterMapping.azure_billing_meter\",\"NativeReferenceName\":\"azure_billing_meter\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"OperationName\"},\"Name\":\"CapacityUsageByItems.OperationName\",\"NativeReferenceName\":\"OperationName\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"azure_billing_meter\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"135.04917741937348D\"}}}},\"selector\":{\"metadata\":\"OperationAzureMeterMapping.operation\"}}]}}}",
+          "filters": "[]",
+          "height": 594.54,
+          "width": 733.43,
+          "x": 0.00,
+          "y": 81.94,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"a1ed0aa0b2637bf12ed4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":808.368462138954,\"y\":73.94223263075722,\"z\":1000,\"width\":471.63153786104607,\"height\":594.5355191256831}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"OperationAzureMeterMapping.operation\"},{\"queryRef\":\"OperationAzureMeterMapping.azure_billing_meter\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OperationAzureMeterMapping\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"operation\"},\"Name\":\"OperationAzureMeterMapping.operation\",\"NativeReferenceName\":\"operation\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"azure_billing_meter\"},\"Name\":\"OperationAzureMeterMapping.azure_billing_meter\",\"NativeReferenceName\":\"azure_billing_meter\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"operation\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 594.54,
+          "width": 471.63,
+          "x": 808.37,
+          "y": 73.94,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"265L\"}}}}}]}}",
+      "displayName": "Cost By Item",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"daeef7d7bd8464057a44\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Workspaces\"}},\"Property\":\"WorkspaceName\"}},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 720.00,
+      "name": "faec7d4c269e97ffa808",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0dcabe0bd5f009b6c6da\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":86.09240701122245,\"z\":0,\"width\":950.0912059452763,\"height\":252.12776339000862,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Date.Date\"},{\"queryRef\":\"Capacities.CapacityName\"},{\"queryRef\":\"CapacityUsageByItems.ItemKind\"},{\"queryRef\":\"CapacityUsageByItems.ItemName\"},{\"queryRef\":\"Sum(CapacityUsageByItems.sum_CU)\"},{\"queryRef\":\"Sum(CapacityUsageByItems.sum_duration)\"},{\"queryRef\":\"AzureBillingCost.CostPerItem\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c1\",\"Entity\":\"CapacityUsageByItems\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Date\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Capacities\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Property\":\"ItemKind\"},\"Name\":\"CapacityUsageByItems.ItemKind\",\"NativeReferenceName\":\"ItemKind\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Property\":\"ItemName\"},\"Name\":\"CapacityUsageByItems.ItemName\",\"NativeReferenceName\":\"ItemName\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Property\":\"sum_CU\"}},\"Function\":0},\"Name\":\"Sum(CapacityUsageByItems.sum_CU)\",\"NativeReferenceName\":\"CU(s)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"},\"Name\":\"AzureBillingCost.CostPerItem\",\"NativeReferenceName\":\"CostPerItem\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Date.Date\",\"NativeReferenceName\":\"Date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Property\":\"sum_duration\"}},\"Function\":0},\"Name\":\"Sum(CapacityUsageByItems.sum_duration)\",\"NativeReferenceName\":\"Sum of sum_duration\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"CapacityName\"},\"Name\":\"Capacities.CapacityName\",\"NativeReferenceName\":\"CapacityName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"CostPerItem\"}}}]},\"columnProperties\":{\"Sum(CapacityUsageByItems.sum_CU)\":{\"displayName\":\"CU(s)\"}},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Compute Cost By Workspaces'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 252.13,
+          "width": 950.09,
+          "x": 0.00,
+          "y": 86.09,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"5ba3431a817237d2e584\",\"layouts\":[{\"id\":0,\"position\":{\"x\":660.9752198241407,\"y\":0,\"z\":3000,\"width\":289.5603517186251,\"height\":85.94724220623502,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"CapacityUsageByItems.ItemKind\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"CapacityUsageByItems\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"ItemKind\"},\"Name\":\"CapacityUsageByItems.ItemKind\",\"NativeReferenceName\":\"ItemKind\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 85.95,
+          "width": 289.56,
+          "x": 660.98,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"5c167fe9de781e0116bb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":576.5116540930075,\"z\":4000,\"width\":950.0912059452763,\"height\":144.51225462598055,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"AzureBillingCost.UsageDate\"},{\"queryRef\":\"AzureBillingCost.Meter\"},{\"queryRef\":\"Sum(AzureBillingCost.PreTaxCost)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0},\"Name\":\"Sum(AzureBillingCost.PreTaxCost)\",\"NativeReferenceName\":\"Sum of PreTaxCost\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Meter\"},\"Name\":\"AzureBillingCost.Meter\",\"NativeReferenceName\":\"Meter\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"UsageDate\"},\"Name\":\"AzureBillingCost.UsageDate\",\"NativeReferenceName\":\"UsageDate\"}]},\"columnProperties\":{\"Sum(AzureBillingCost.PreTaxCost)\":{\"displayName\":\"Cost\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Other Capacity Costs'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"bcf1c312e1f59a6005d5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"azure_billing_meter_cleaned\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OperationAzureMeterMapping\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"azure_billing_meter_cleaned\"}},\"Right\":{\"Literal\":{\"Value\":\"null\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]},\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"535f6bd0bad844d47845\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"PreTaxCost\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":1},{\"name\":\"94c284747656abb2cbc5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"OperationAzureMeterMapping\"}},\"Property\":\"operation\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"ef80d08146071501dd63\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"Meter\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"9dd4608d7e52a5f2e5cf\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"CapacityUsageByItems\"}},\"Property\":\"OperationName_cleaned\"}},\"type\":\"Advanced\",\"howCreated\":1,\"ordinal\":4},{\"name\":\"e1f795e108dd9750d290\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"UsageDate\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":5},{\"name\":\"6a023a437005d6942197\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AzureBillingCost\"}},\"Property\":\"MeterSubCategory\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"MeterSubCategory\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Fabric Capacity'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":6}]",
+          "height": 144.51,
+          "width": 950.09,
+          "x": 0.00,
+          "y": 576.51,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"64ce376e6c58170610cd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":359.7432721540367,\"z\":5000,\"width\":950.0912059452763,\"height\":190.63318695342116,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Date.Date\"},{\"queryRef\":\"Capacities.CapacityName\"},{\"queryRef\":\"Workspaces.WorkspaceName\"},{\"queryRef\":\"StorageByWorkspaces.WorkloadKind\"},{\"queryRef\":\"Sum(StorageByWorkspaces.StaticStorageInGb)\"},{\"queryRef\":\"Sum(StorageByWorkspaces.UtilizationInGb)\"},{\"queryRef\":\"AzureBillingCost.StorageCost\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Capacities\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Date\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"AzureBillingCost\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"StorageByWorkspaces\",\"Type\":0},{\"Name\":\"w\",\"Entity\":\"Workspaces\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"CapacityName\"},\"Name\":\"Capacities.CapacityName\",\"NativeReferenceName\":\"CapacityName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Date.Date\",\"NativeReferenceName\":\"Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"StorageCost\"},\"Name\":\"AzureBillingCost.StorageCost\",\"NativeReferenceName\":\"StorageCost\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"StaticStorageInGb\"}},\"Function\":0},\"Name\":\"Sum(StorageByWorkspaces.StaticStorageInGb)\",\"NativeReferenceName\":\"StaticStorageInGb\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"UtilizationInGb\"}},\"Function\":0},\"Name\":\"Sum(StorageByWorkspaces.UtilizationInGb)\",\"NativeReferenceName\":\"UtilizationInGb\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"WorkloadKind\"},\"Name\":\"StorageByWorkspaces.WorkloadKind\",\"NativeReferenceName\":\"WorkloadKind\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"WorkspaceName\"},\"Name\":\"Workspaces.WorkspaceName\",\"NativeReferenceName\":\"WorkspaceName\"}]},\"columnProperties\":{\"Sum(CapacityUsageByItems.sum_CU)\":{\"displayName\":\"CU(s)\"},\"Sum(StorageByWorkspaces.StaticStorageInGb)\":{\"displayName\":\"StaticStorageInGb\"},\"Sum(StorageByWorkspaces.UtilizationInGb)\":{\"displayName\":\"UtilizationInGb\"}},\"queryOptions\":{\"keepProjectionOrder\":true},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Storage Cost by Workspaces'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 190.63,
+          "width": 950.09,
+          "x": 0.00,
+          "y": 359.74,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"7af43b88d8312d036530\",\"layouts\":[{\"id\":0,\"position\":{\"x\":364.70367289995437,\"y\":0,\"z\":6000,\"width\":296.7080728677595,\"height\":67.99560003219489,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Workspaces.WorkspaceName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"w\",\"Entity\":\"Workspaces\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"WorkspaceName\"},\"Name\":\"Workspaces.WorkspaceName\",\"NativeReferenceName\":\"WorkspaceName\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 68.00,
+          "width": 296.71,
+          "x": 364.70,
+          "y": 0.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"a366d296b58a0d110910\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":7000,\"width\":63.05046548439889,\"height\":39.561076382367936,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 39.56,
+          "width": 63.05,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"c64165bab8291b9394eb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":950.5355715427659,\"y\":0,\"z\":1000,\"width\":329.46442845723425,\"height\":323.32533972821744,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Date.Year\",\"active\":true},{\"queryRef\":\"Date.Month\",\"active\":true},{\"queryRef\":\"Date.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"Date.Year\",\"NativeReferenceName\":\"Year\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Month\"},\"Name\":\"Date.Month\",\"NativeReferenceName\":\"Month\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Date.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}}]},\"expansionStates\":[{\"roles\":[\"Values\"],\"levels\":[{\"queryRefs\":[\"Date.Year\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Date\"}},\"Property\":\"Year\"}}],\"isPinned\":true},{\"queryRefs\":[\"Date.Month\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Date\"}},\"Property\":\"Month\"}}],\"isPinned\":true},{\"queryRefs\":[\"Date.Date\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null,\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"2025L\"}}],\"isToggled\":true,\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"3L\"}}],\"isToggled\":true}]}]}}],\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2025-02-20T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2025-02-28T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 323.33,
+          "width": 329.46,
+          "x": 950.54,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"e28e22b8ce728cbbb341\",\"layouts\":[{\"id\":0,\"position\":{\"x\":44.506210930163924,\"y\":0,\"z\":2000,\"width\":320.1974619697905,\"height\":86.53985458642985,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Capacities.CapacityName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Capacities\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"CapacityName\"},\"Name\":\"Capacities.CapacityName\",\"NativeReferenceName\":\"CapacityName\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[{\"name\":\"ec570e52f67a1e5f478f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"CapacityUsageByItems\"}},\"Property\":\"OperationName_cleaned\"}},\"type\":\"Categorical\",\"howCreated\":1}]",
+          "height": 86.54,
+          "width": 320.20,
+          "x": 44.51,
+          "y": 0.00,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "Sunset"
+}

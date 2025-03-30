@@ -1,0 +1,56 @@
+relationship cccfd4ee-ec01-54a1-73e0-64d83d6bcbf9
+	fromColumn: CapacityUsageByItems.OperationName_cleaned
+	toColumn: OperationAzureMeterMapping.operation_cleaned
+
+relationship 6f21d44e-84f6-c373-57af-9b112c3aabc8
+	crossFilteringBehavior: bothDirections
+	fromColumn: OperationAzureMeterMapping.azure_billing_meter_cleaned
+	toColumn: Meter.azure_billing_meter_cleaned
+
+relationship 156f1974-13c6-7e4b-ee0f-27c7ec9e6bab
+	fromColumn: CapacityUsageByItems.Date
+	toColumn: Date.Date
+
+relationship 53ca30c3-8002-2844-ab21-77b6f9386794
+	isActive: false
+	fromColumn: CapacityUsageByItems.capacityId
+	toColumn: Capacities.capacityId
+
+relationship 249f0796-10b7-f89b-7f42-77e42e5a6ac3
+	fromColumn: AzureBillingCost.Meter_cleaned
+	toColumn: Meter.azure_billing_meter_cleaned
+
+relationship f099710d-744c-78cf-6dda-7edb29bd51dc
+	fromColumn: AzureBillingCost.UsageDate
+	toColumn: Date.Date
+
+relationship b4c77067-6118-a8dc-22c9-1df19097ce02
+	fromColumn: AzureBillingCost.ResourceName
+	toColumn: Capacities.CapacityName
+
+relationship 333666be-bf45-8b05-0da8-dadf646d7c88
+	fromColumn: StorageByWorkspaces.Date
+	toColumn: Date.Date
+
+relationship 13a4e658-04ab-211a-381b-fc935bc4f5d0
+	isActive: false
+	fromColumn: StorageByWorkspaces.PremiumCapacityId
+	toColumn: Capacities.capacityId
+
+relationship e8bdfd14-b26a-2e38-322b-99508fa31694
+	fromColumn: StorageByWorkspaces.OperationName_cleaned
+	toColumn: OperationAzureMeterMapping.operation_cleaned
+
+relationship c84d92c2-b251-dea0-b472-7f6735aafd62
+	fromColumn: StorageByWorkspaces.CapacityWorkspaceKey
+	toColumn: Workspaces.CapacityWorkspaceKey
+
+relationship 87d9d3d1-8c49-fb69-dcc0-04d7f014614e
+	fromColumn: CapacityUsageByItems.CapacityWorkspaceKey
+	toColumn: Workspaces.CapacityWorkspaceKey
+
+relationship c5562c9d-e9f3-c522-12bb-55ae04ee5ccd
+	crossFilteringBehavior: bothDirections
+	fromColumn: Workspaces.PremiumCapacityId
+	toColumn: Capacities.capacityId
+

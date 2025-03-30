@@ -1,0 +1,149 @@
+table Capacities
+	lineageTag: 9da1132e-93e6-47f8-9e62-67365eb34a0a
+	sourceLineageTag: [dbo].[Capacities]
+
+	column capacityId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 076b13a3-a570-4813-8811-27af3df2a337
+		sourceLineageTag: capacityId
+		summarizeBy: none
+		sourceColumn: capacityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 6d6b063b-81d4-4f4c-9125-e2367d35bd20
+		sourceLineageTag: state
+		summarizeBy: sum
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3383eab7-a92e-432c-b9a7-5ff8f00936ce
+		sourceLineageTag: source
+		summarizeBy: sum
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacityPlan
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d3f831c3-2c20-4cdf-90c0-4d786429e73d
+		sourceLineageTag: capacityPlan
+		summarizeBy: none
+		sourceColumn: capacityPlan
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacityNumberOfVCores
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 1918639a-14fe-4533-b575-b06379b1f586
+		sourceLineageTag: capacityNumberOfVCores
+		summarizeBy: sum
+		sourceColumn: capacityNumberOfVCores
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacityMemoryInGB
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9168b91d-b084-4501-b838-36eb8c37d26a
+		sourceLineageTag: capacityMemoryInGB
+		summarizeBy: sum
+		sourceColumn: capacityMemoryInGB
+
+		annotation SummarizationSetBy = Automatic
+
+	column o365AddonId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 99a4140b-0e27-4bcf-b1ba-26583c6a26a1
+		sourceLineageTag: o365AddonId
+		summarizeBy: none
+		sourceColumn: o365AddonId
+
+		annotation SummarizationSetBy = Automatic
+
+	column mode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: aeaa1902-b8b8-4b65-9087-f467373eb43e
+		sourceLineageTag: mode
+		summarizeBy: sum
+		sourceColumn: mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: edac8eb1-b2c6-4f58-8a38-c0293a233443
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column CapacityName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed3ca606-87f1-401c-a947-be4a5b57007d
+		sourceLineageTag: CapacityName
+		summarizeBy: none
+		sourceColumn: CapacityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: abaacf6c-802c-4ce9-b4f1-121c960d4f54
+		sourceLineageTag: sku
+		summarizeBy: none
+		sourceColumn: sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column creationDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b7eeb4df-beb6-4b3f-bd0f-5f0ee8af42e2
+		sourceLineageTag: creationDate
+		summarizeBy: none
+		sourceColumn: creationDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Owners
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5e032d69-f911-4c25-bc57-03a27f9710ad
+		sourceLineageTag: Owners
+		summarizeBy: none
+		sourceColumn: Owners
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Capacities = entity
+		mode: directLake
+		source
+			entityName: Capacities
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
